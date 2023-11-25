@@ -1,9 +1,11 @@
 library(haven)
 library(dplyr)
-print("Starting....")
-name <- "data_sets/Green_Salkind_SPSS_Data_Sets/Lesson_19_Exercise_File_1.sav"
+print("Starting Lesson 19")
+print("Starting Excercises 1 and 2")
+
+lesson19e1 <- "data_sets/Green_Salkind_SPSS_Data_Sets/Lesson_19_Exercise_File_1.sav"
 print("Starting Read")
-data <- read_sav(name)
+data <- read_sav(lesson19e1)
 print("Read Complete")
 
 print("Original Data")
@@ -27,4 +29,19 @@ new_data <- data %>% mutate(
 
 print("Data new scale: mathatt")
 new_data
+
+
+print("Starting Excercises 3,4, and 5")
+lesson19e2 <- "data_sets/Green_Salkind_SPSS_Data_Sets/Lesson_19_Exercise_File_2.sav"
+print("Starting Read")
+data2 <- read_sav(lesson19e2)
+print("Read Complete")
+
+data2
+age_group <- c("20-29", "30-39", "40 and beyond")
+factor_age_group <- factor(age_group)
+
+job_stress <- c(1,2)
+factor_job_stress <- factor(job_stress)
+
 print("Ending")
