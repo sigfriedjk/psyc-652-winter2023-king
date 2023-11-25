@@ -11,12 +11,17 @@ data
 #df <- data.frame()
 summary(data)
 
+max_value = 5
+
 #define columns to reverse code
-columns_to_reverse= data("ITEM1")
+columns_to_reverse= data(ITEM1)
 
 #reverse code the ITEM1 columns
-data[ , columns_to_reverse] = 6 - data[ , columns_to_reverse]
+data[ , columns_to_reverse] = (max_value  +1) - data[ , columns_to_reverse]
 
 data
 
+#with_new_scale <- cbind(data, mathatt = c(1000, 6000, 2000))
+new_data <- data %>% mutate(mathatt = ifelse(!is.na(ITEM1),1,NA))
+new_data
 print("Ending")
