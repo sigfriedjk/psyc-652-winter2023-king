@@ -4,4 +4,4 @@ RUN R -e "install.packages('tidyverse',dependencies=TRUE, repos='http://cran.rst
 COPY ./scripts /usr/local/src/myscripts
 COPY ./data_sets /usr/local/src/myscripts/data_sets
 WORKDIR /usr/local/src/myscripts
-CMD ["Rscript", "main.R"]
+CMD ["bash", "main.sh"]
