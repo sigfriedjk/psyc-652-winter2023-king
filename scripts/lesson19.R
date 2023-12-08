@@ -28,6 +28,7 @@ new_data <- data %>% mutate(
 writeLines("Data new scale: mathatt")
 new_data
 
+write_sav(new_data, "/tmp/lesson19-1-king.sav")
 
 writeLines("\n\n\nStarting Exercises 3,4, and 5")
 lesson19e2 <- "data_sets/Green_Salkind_SPSS_Data_Sets/Lesson_19_Exercise_File_2.sav"
@@ -56,7 +57,7 @@ job_stress_factor <- factor(job_stress_vector)
 data2$job_stress_group <- as.factor(ifelse(data2$JOBSTRES > 21, 'low', 'high')) 
 
 data2
-
+write_sav(new_data, "/tmp/lesson19-2-king.sav")
 
 writeLines("\n\n\nStarting Exercises 6,7, and 8")
 lesson19e3 <- "data_sets/Green_Salkind_SPSS_Data_Sets/Lesson_19_Exercise_File_3.sav"
@@ -89,5 +90,6 @@ new_data3 <- new_data3 %>% mutate(
 )
 
 new_data3
+write_sav(new_data, "/tmp/lesson19-3-king.sav")
 
 writeLines("Ending")
