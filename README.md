@@ -25,6 +25,7 @@ This repository contains R code written for the book exercises, homework, and ca
 ## Useful R Documentation
 1. [Tidyverse](https://uomresearchit.github.io/r-tidyverse-intro/04-dplyr/)
 2. [Haven](https://haven.tidyverse.org/)
+3. [Tidyverse again](https://dplyr.tidyverse.org/reference/mutate.html)
 
 
 ## Other Useful Links
@@ -33,3 +34,11 @@ This repository contains R code written for the book exercises, homework, and ca
 ## Future Notes
 1. Convert dockerfile to build from the (rocker version)[https://github.com/rocker-org/rocker-versioned2] that already contains tidyverse
 2. Updated Dockerfile to mount a local directory instead of building with each run
+
+
+## Notes
+script to clean filename `for file in *.sav; do   mv -- "$file" "${file// /_}"; done`
+
+### Other References
+1. https://www.geeksforgeeks.org/how-to-create-categorical-variables-in-r/
+2. https://www.r-bloggers.com/2021/06/how-to-find-z-score-in-r-easy-calculation-quick-guide/

@@ -1,2 +1,3 @@
 #! /bin/bash
-Rscript lesson19.R
+Rscript lesson19.R > /tmp/lesson19.log
+Rscript homework1.R #> /tmp/homework1.log
