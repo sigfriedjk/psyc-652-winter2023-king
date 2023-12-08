@@ -1,0 +1,22 @@
+[1] "Starting Homework 1"
+   Manager_ID Gender Motivation Commitment
+1           1      M          7          8
+2           2      M          8         14
+3           3      M          5          7
+4           4      M          1          0
+5           5      M          4          5
+6           6      M          5          7
+7           7      M          5          6
+8           8      M          8         10
+9           9      M          8         11
+10         10      M          6         12
+11         11      F          4          4
+12         12      F          5          8
+13         13      F          8         15
+14         14      F         10         18
+15         15      F         10         14
+16         16      F          1          2
+17         17      F          1          1
+18         18      F          3          4
+19         19      F          5         12
+20         20      F          0          2
