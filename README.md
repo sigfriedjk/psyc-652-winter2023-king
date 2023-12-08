@@ -29,7 +29,8 @@ This repository contains R code written for the book exercises, homework, and ca
 
 
 ## Other Useful Links
-1. [Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/)2. 
+1. [This repo](https://github.com/sigfriedjk/psyc-652-winter2023-king/tree/master)
+2. [Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/)
 
 ## Future Notes
 1. Convert dockerfile to build from the (rocker version)[https://github.com/rocker-org/rocker-versioned2] that already contains tidyverse
@@ -37,8 +38,9 @@ This repository contains R code written for the book exercises, homework, and ca
 
 
 ## Notes
-script to clean filename `for file in *.sav; do   mv -- "$file" "${file// /_}"; done`
+script to clean data filenames `for file in *.sav; do   mv -- "$file" "${file// /_}"; done`
 
 ### Other References
 1. https://www.geeksforgeeks.org/how-to-create-categorical-variables-in-r/
 2. https://www.r-bloggers.com/2021/06/how-to-find-z-score-in-r-easy-calculation-quick-guide/
+3. https://sparkbyexamples.com/r-programming/r-count-frequency-of-all-unique-values-in-vector/
