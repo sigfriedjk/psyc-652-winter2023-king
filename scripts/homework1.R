@@ -28,8 +28,10 @@ new_data <- data_frame %>% mutate(
 writeLines("Recoding Gender") 
 new_data$Gender_numeric <- as.factor(ifelse(new_data$Gender == "M",1,2)) 
 
-writeLines("New Data") 
+writeLines("New Data set with recoded Gender") 
 new_data
+write_sav(new_data, "/tmp/homework1-king.sav")
+
 
 writeLines("\nSelecting only Gender_numeric 2")
 females_only <- new_data %>% filter(Gender_numeric == 2)
@@ -62,3 +64,36 @@ hist(data_frame$Commitment,
 )
 
 dev.off()
+
+jpeg(filename="/tmp/motivation.jpg",width=480,height=480)
+
+hist(data_frame$Motivation,
+ main="Motivation",
+ xlab="Motivation Level",
+ xlim=c(0,10),
+ col="darkmagenta",
+ breaks=20
+)
+
+dev.off()
+
+jpeg(filename="/tmp/motivation_vs_commitment.jpg",width=480,height=480)
+ggplot(data = data_frame, aes(x = Motivation, y = Commitment)) +  geom_point()
+dev.off()
+
+
+jpeg(filename="/tmp/motivation_vs_commitment_by_gender.jpg",width=480,height=480)
+ggplot(data = data_frame, aes(x = Motivation, y = Commitment, col=Gender)) +  geom_point()
+dev.off()
+
+writeLines("\n\nDescriptive Statistics for the entire data set")
+summary(data_frame)
+
+males_only <- new_data %>% filter(Gender_numeric == 1)
+#males_only
+
+writeLines("\n\nDescriptive Statistics for Males")
+summary(females_only)
+
+writeLines("\n\nDescriptive Statistics for Females")
+summary(males_only)
