@@ -88,7 +88,7 @@ ggplot(data = data_frame, aes(x = Motivation, y = Commitment, col=Gender)) +  ge
 dev.off()
 
 writeLines("\n\nDescriptive Statistics for the entire data set")
-summary(data_frame)
+summary(new_data)
 
 males_only <- new_data %>% filter(Gender_numeric == 1)
 #males_only

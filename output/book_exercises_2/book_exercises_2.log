@@ -1,0 +1,47 @@
+
+
+Starting Book Exercises 2
+Starting Read
+Read Complete
+# A tibble: 6 × 2
+  GRADE SCORE
+  <dbl> <dbl>
+1     1    45
+2     2    56
+3     3    49
+4     4    57
+5     5    61
+6     6    72
+Creating Line Graph
+null device 
+          1 
+Creating Line Graph with title, custom scales, and line type
+null device 
+          1 
+Started Lesson 17A Exercise 1 and 2
+null device 
+          1 
+null device 
+          1 
+Starting Lesson 20
+# A tibble: 120 × 3
+   GENDER    ETHNIC       JOB               
+   <dbl+lbl> <dbl+lbl>    <dbl+lbl>         
+ 1 1 [Men]   2 [Hispanic]  7 [Medical]      
+ 2 1 [Men]   2 [Hispanic]  4 [Academic]     
+ 3 1 [Men]   2 [Hispanic]  4 [Academic]     
+ 4 1 [Men]   2 [Hispanic]  9 [Military]     
+ 5 1 [Men]   2 [Hispanic]  1 [Clerical]     
+ 6 1 [Men]   2 [Hispanic]  8 [Skilled]      
+ 7 1 [Men]   2 [Hispanic]  5 [Professional] 
+ 8 1 [Men]   2 [Hispanic]  6 [Self-Employed]
+ 9 1 [Men]   3 [Asian]     5 [Professional] 
+10 1 [Men]   3 [Asian]    10 [Unemployed]   
+# ℹ 110 more rows
+     GENDER          ETHNIC           JOB        
+ Min.   :1.000   Min.   :1.000   Min.   : 1.000  
+ 1st Qu.:1.000   1st Qu.:2.000   1st Qu.: 4.000  
+ Median :2.000   Median :3.000   Median : 6.000  
+ Mean   :1.517   Mean   :3.025   Mean   : 5.742  
+ 3rd Qu.:2.000   3rd Qu.:4.000   3rd Qu.: 8.000  
+ Max.   :2.000   Max.   :5.000   Max.   :10.000  
