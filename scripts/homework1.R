@@ -30,7 +30,7 @@ new_data$Gender_numeric <- as.factor(ifelse(new_data$Gender == "M",1,2))
 
 writeLines("New Data set with recoded Gender") 
 new_data
-write_sav(new_data, "/tmp/homework1-king.sav")
+write_sav(new_data, "/tmp/homework1/homework1-king.sav")
 
 
 writeLines("\nSelecting only Gender_numeric 2")
@@ -44,7 +44,7 @@ piepercent <- round(100 * gender_frequency$Freq / sum(gender_frequency$Freq), 1)
 
 
 print(gender_frequency)
-jpeg(filename="/tmp/gender.jpg",width=480,height=480)
+jpeg(filename="/tmp/homework1/gender.jpg",width=480,height=480)
 
 pie(gender_frequency$Freq, labels = piepercent, main="Gender", col = c("red", "green"))
 legend("topright", 
@@ -53,7 +53,7 @@ legend("topright",
        fill = c("red", "green"))
 dev.off()
 
-jpeg(filename="/tmp/commitment.jpg",width=480,height=480)
+jpeg(filename="/tmp/homework1/commitment.jpg",width=480,height=480)
 
 hist(data_frame$Commitment,
  main="Commitment",
@@ -65,7 +65,7 @@ hist(data_frame$Commitment,
 
 dev.off()
 
-jpeg(filename="/tmp/motivation.jpg",width=480,height=480)
+jpeg(filename="/tmp/homework1/motivation.jpg",width=480,height=480)
 
 hist(data_frame$Motivation,
  main="Motivation",
@@ -77,12 +77,12 @@ hist(data_frame$Motivation,
 
 dev.off()
 
-jpeg(filename="/tmp/motivation_vs_commitment.jpg",width=480,height=480)
+jpeg(filename="/tmp/homework1/motivation_vs_commitment.jpg",width=480,height=480)
 ggplot(data = data_frame, aes(x = Motivation, y = Commitment)) +  geom_point()
 dev.off()
 
 
-jpeg(filename="/tmp/motivation_vs_commitment_by_gender.jpg",width=480,height=480)
+jpeg(filename="/tmp/homework1/motivation_vs_commitment_by_gender.jpg",width=480,height=480)
 ggplot(data = data_frame, aes(x = Motivation, y = Commitment, col=Gender)) +  geom_point()
 dev.off()
 
