@@ -37,6 +37,7 @@ writeLines("\nSelecting only Gender_numeric 2")
 females_only <- new_data %>% filter(Gender_numeric == 2)
 females_only
 
+write_sav(new_data, "/tmp/homework1/homework1-king-females_only.sav")
 
 writeLines("\n\nGraphs")
 gender_frequency <- as.data.frame(table(data_frame$Gender))
