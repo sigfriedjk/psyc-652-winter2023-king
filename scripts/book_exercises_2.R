@@ -48,13 +48,26 @@ data20
 summary(data20)
 
 jpeg(filename="/tmp/book_exercises_2/lesson20-bar-jobs.jpg")
-hist(data20, names.arg = data20$job, xlab = "Job", 
-           ylab="Frequency", 
-           main= "Job Frequency", 
-           col="red"
-           )
+xx <- barplot(table(data20$JOB) )
+coords <- as.numeric(table(data20$JOB))
+text(x = xx, y = coords, label = coords, cex = 0.8,pos = 3, col = "red")
 dev.off()
 
-writeLines("Starting Lesson 21")
-lesson21df1 <- "data_sets/Green_Salkind_SPSS_Data_Sets/Lesson_21_Data_File_1.sav"
-data21 <- read_sav(lesson21df1)
+# writeLines("Starting Lesson 21")
+# lesson21df1 <- "data_sets/Green_Salkind_SPSS_Data_Sets/Lesson_21_Data_File_1.sav"
+# data21 <- read_sav(lesson21df1)
+
+
+writeLines("\n\n\nStarting Lesson 20 Exercises ")
+lesson20ef1 <- "data_sets/Green_Salkind_SPSS_Data_Sets/Lesson_20_Exercise_File_1.sav"
+data20e <- read_sav(lesson20ef1)
+
+data20e
+table(data20e$GENDER)
+
+data20e %>% 
+    to_long(keep = GENDER) %>% 
+    tab_cols(list(total(), GENDER) %nest% variable) %>%
+    tab_cells("|" = value) %>% 
+    tab_stat_cpct() %>%
+    tab_pivot()
