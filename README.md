@@ -44,3 +44,4 @@ script to clean data filenames `for file in *.sav; do   mv -- "$file" "${file// 
 1. https://www.geeksforgeeks.org/how-to-create-categorical-variables-in-r/
 2. https://www.r-bloggers.com/2021/06/how-to-find-z-score-in-r-easy-calculation-quick-guide/
 3. https://sparkbyexamples.com/r-programming/r-count-frequency-of-all-unique-values-in-vector/
+4. https://statsandr.com/blog/descriptive-statistics-in-r/

@@ -1,6 +1,7 @@
 library(haven)
 library(dplyr)
-writeLines("\n\nStarting Book Exercises 3")
+library(ggplot2)
+writeLines("\n\n\n\n******Starting Book Exercises 3")
 
 directory <- "data_sets/Green_Salkind_SPSS_Data_Sets/"
 
@@ -32,5 +33,174 @@ lesson24_exercise2_data <- read_sav(lesson24_exercisefilename2)
 writeLines("Read Complete")
 
 
-
+writeLines("\n\n\n\n******Starting Section 22.4")
 lesson22_data
+
+summary(lesson22_data)
+
+writeLines("\n\nRunning one sample t-test with test value 50")
+t.test(lesson22_data, mu = 50)
+write_sav(lesson22_data, "/tmp/book_exercises_3/king-lesson22d1.sav")
+
+writeLines("\n\n\n\n******Lesson 22 Exercises 1-4")
+lesson22_exercise1_data
+
+
+lesson22_exercise1_data <- lesson22_exercise1_data %>%
+   mutate(total_score = ITEM1+ITEM2+ITEM3+ITEM4+ITEM5+ITEM6+ITEM7+ITEM8)
+   
+lesson22_exercise1_data
+t.test(lesson22_exercise1_data$total_score, mu = 2)
+write_sav(lesson22_exercise1_data, "/tmp/book_exercises_3/king-lesson22e1.sav")
+
+writeLines("\n\n\n\n******Lesson 22 Exercises 5-6")
+lesson22_exercise2_data
+
+t.test(lesson22_exercise2_data, mu = 5)
+
+write_sav(lesson22_exercise2_data, "/tmp/book_exercises_3/king-lesson22e2.sav")
+jpeg(filename="/tmp/book_exercises_3/lesson22exercise6.jpg",width=480,height=480)
+
+hist(lesson22_exercise2_data$HAP_SAD,
+ main="Happiness/Sadness Level",
+ xlab="Happiness Scores",
+ xlim=c(0,20),
+ col="darkmagenta",
+ breaks=20
+)
+
+dev.off()
+
+writeLines("\n\n\n\n******Starting Section 23.1")
+lesson23_data
+
+summary(lesson23_data)
+
+
+t.test(lesson23_data$PAY, lesson23_data$SECURITY, paired = TRUE)
+
+write_sav(lesson23_data, "/tmp/book_exercises_3/king-lesson23d1.sav")
+
+
+writeLines("\n\n\n\n******Lesson 23 Exercises 1-5")
+lesson23_exercise1_data
+
+lesson23_exercise1_data <- lesson23_exercise1_data %>%
+    mutate(ILS_40 = INTER_40 + OCCUP_40, ILS_60 = INTER_60 + OCCUP_60)
+    
+lesson23_exercise1_data
+
+t.test(lesson23_exercise1_data$ILS_40, lesson23_exercise1_data$ILS_60, paired=TRUE)
+
+lesson23_exercise1_data <- lesson23_exercise1_data %>%
+    mutate(difference = ILS_40 - ILS_60)
+
+lesson23_exercise1_data
+
+jpeg(filename="/tmp/book_exercises_3/lesson23exercise3.jpg",width=480,height=480)
+
+hist(lesson23_exercise1_data$difference,
+ main="ILS",
+ xlab="ILS Difference between Age 40 and 60",
+ xlim=c(-40,40),
+ col="darkmagenta",
+ breaks=20
+)
+
+dev.off()
+
+
+lesson23_exercise1_data <- lesson23_exercise1_data %>%
+    mutate(difference_inter = INTER_40 - INTER_60, difference_occup= OCCUP_40- OCCUP_60)
+
+lesson23_exercise1_data
+
+t.test(lesson23_exercise1_data$INTER_40, lesson23_exercise1_data$INTER_60, paired=TRUE)
+
+t.test(lesson23_exercise1_data$OCCUP_40, lesson23_exercise1_data$OCCUP_60, paired=TRUE)
+
+jpeg(filename="/tmp/book_exercises_3/lesson23exercise5-1.jpg",width=480,height=480)
+
+hist(lesson23_exercise1_data$difference_inter,
+ main="Interpersonal Stress",
+ xlab="Difference between Age 40 and 60",
+ xlim=c(-40,40),
+ col="darkmagenta",
+ breaks=20
+)
+
+dev.off()
+
+jpeg(filename="/tmp/book_exercises_3/lesson23exercise5-2.jpg",width=480,height=480)
+
+hist(lesson23_exercise1_data$difference_occup,
+ main="Occupational Stress",
+ xlab="Difference between Age 40 and 60",
+ xlim=c(-40,40),
+ col="darkmagenta",
+ breaks=20
+)
+
+dev.off()
+
+write_sav(lesson23_exercise1_data, "/tmp/book_exercises_3/king-lesson23e1.sav")
+
+summary(lesson23_exercise1_data)
+
+
+writeLines("\n\n\n\n******Lesson 23 Exercises 6-8")
+lesson23_exercise2_data
+
+summary(lesson23_exercise2_data)
+
+t.test(lesson23_exercise2_data$HUSBAND, lesson23_exercise2_data$WIFE, paired=TRUE)
+
+jpeg(filename="/tmp/book_exercises_3/lesson23exercise8.jpg",width=480,height=480)
+
+#ggplot(lesson23_exercise2_data) +
+#  aes(x = lesson23_exercise2_data, y = lesson23_exercise2_data.Length) +
+#  geom_boxplot()
+  
+  
+dev.off()
+
+write_sav(lesson23_exercise2_data, "/tmp/book_exercises_3/king-lesson23e2.sav")
+
+summary(lesson23_exercise2_data)
+
+writeLines("\n\n\n\n******Lesson 24")
+lesson24_data
+summary(lesson24_data)
+
+t.test(TALK ~ STRESS, data = lesson24_data, var.equal=TRUE)
+
+t.test(TALK ~ STRESS, data = lesson24_data, var.equal=FALSE)
+
+
+write_sav(lesson24_data, "/tmp/book_exercises_3/king-lesson24d1.sav")
+writeLines("\n\n\n\n******Lesson 24 Exercises 1-5")
+lesson24_exercise1_data
+summary(lesson24_exercise1_data)
+
+t.test(TIME ~ WEIGHT, data = lesson24_exercise1_data, var.equal=TRUE)
+t.test(TIME ~ WEIGHT, data = lesson24_exercise1_data, var.equal=FALSE)
+
+overweight_only <- lesson24_exercise1_data %>% filter(WEIGHT == 1)
+length(overweight_only$TIME)
+normalweight_only <- lesson24_exercise1_data %>% filter(WEIGHT == 2)
+length(normalweight_only$TIME)
+
+mean(overweight_only$TIME)
+sd(normalweight_only$TIME)
+
+
+
+write_sav(lesson24_exercise1_data, "/tmp/book_exercises_3/king-lesson24e1.sav")
+writeLines("\n\n\n\n******Lesson 24 Exercises 6-10")
+lesson24_exercise1_data
+summary(lesson24_exercise1_data)
+
+
+
+
+write_sav(lesson24_exercise1_data, "/tmp/book_exercises_3/king-lesson24e2.sav")

@@ -1,8 +1,15 @@
 
 
-Starting Book Exercises 3
+
+
+******Starting Book Exercises 3
 Starting Read: Lesson 22-24 Data Files
 Read Complete
+
+
+
+
+******Starting Section 22.4
 # A tibble: 30 × 1
     KUDI
    <dbl>
@@ -17,3 +24,435 @@ Read Complete
  9    68
 10    42
 # ℹ 20 more rows
+      KUDI      
+ Min.   :27.00  
+ 1st Qu.:48.50  
+ Median :55.00  
+ Mean   :54.63  
+ 3rd Qu.:61.25  
+ Max.   :78.00  
+
+
+Running one sample t-test with test value 50
+
+	One Sample t-test
+
+data:  lesson22_data
+t = 2.4573, df = 29, p-value = 0.02022
+alternative hypothesis: true mean is not equal to 50
+95 percent confidence interval:
+ 50.77704 58.48963
+sample estimates:
+mean of x 
+ 54.63333 
+
+
+
+
+
+******Lesson 22 Exercises 1-4
+# A tibble: 6 × 8
+  ITEM1 ITEM2 ITEM3 ITEM4 ITEM5 ITEM6 ITEM7 ITEM8
+  <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+1     1     1     1     1     1     1     1     1
+2     1     1     1     1     0     1     1     0
+3     1     1     0     1     1     1     0     0
+4     1     1     1     1     1     1     1     0
+5     1     1     1     1     0     0     0     0
+6     1     1     1     0     0     1     1     1
+# A tibble: 6 × 9
+  ITEM1 ITEM2 ITEM3 ITEM4 ITEM5 ITEM6 ITEM7 ITEM8 total_score
+  <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>       <dbl>
+1     1     1     1     1     1     1     1     1           8
+2     1     1     1     1     0     1     1     0           6
+3     1     1     0     1     1     1     0     0           5
+4     1     1     1     1     1     1     1     0           7
+5     1     1     1     1     0     0     0     0           4
+6     1     1     1     0     0     1     1     1           6
+
+	One Sample t-test
+
+data:  lesson22_exercise1_data$total_score
+t = 6.9282, df = 5, p-value = 0.0009613
+alternative hypothesis: true mean is not equal to 2
+95 percent confidence interval:
+ 4.515874 7.484126
+sample estimates:
+mean of x 
+        6 
+
+
+
+
+
+******Lesson 22 Exercises 5-6
+# A tibble: 20 × 1
+   HAP_SAD
+     <dbl>
+ 1       5
+ 2      10
+ 3      13
+ 4       7
+ 5       5
+ 6      14
+ 7       8
+ 8      10
+ 9       3
+10       4
+11       5
+12       3
+13      13
+14       5
+15      15
+16      18
+17      12
+18       7
+19      15
+20       3
+
+	One Sample t-test
+
+data:  lesson22_exercise2_data
+t = 3.5428, df = 19, p-value = 0.002174
+alternative hypothesis: true mean is not equal to 5
+95 percent confidence interval:
+  6.534561 10.965439
+sample estimates:
+mean of x 
+     8.75 
+
+null device 
+          1 
+
+
+
+
+******Starting Section 23.1
+# A tibble: 30 × 2
+     PAY SECURITY
+   <dbl>    <dbl>
+ 1     4        3
+ 2     9        1
+ 3     8        6
+ 4     5        7
+ 5     4        6
+ 6     6        5
+ 7     6        3
+ 8     4        4
+ 9     7        8
+10     5        3
+# ℹ 20 more rows
+      PAY           SECURITY  
+ Min.   :3.000   Min.   :1.0  
+ 1st Qu.:5.000   1st Qu.:3.0  
+ Median :5.500   Median :4.0  
+ Mean   :5.667   Mean   :4.5  
+ 3rd Qu.:6.750   3rd Qu.:6.0  
+ Max.   :9.000   Max.   :8.0  
+
+	Paired t-test
+
+data:  lesson23_data$PAY and lesson23_data$SECURITY
+t = 2.827, df = 29, p-value = 0.008426
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ 0.322637 2.010696
+sample estimates:
+mean difference 
+       1.166667 
+
+
+
+
+
+******Lesson 23 Exercises 1-5
+# A tibble: 45 × 4
+   INTER_40 OCCUP_40 INTER_60 OCCUP_60
+      <dbl>    <dbl>    <dbl>    <dbl>
+ 1       76       69       76       72
+ 2       88       78       82       57
+ 3       80       91       72       71
+ 4       80       75       64       59
+ 5       83       82       77       55
+ 6       68       61       81       59
+ 7       52       64       72       75
+ 8       87       64       80       64
+ 9       94       72       71       67
+10       90       77       73       68
+# ℹ 35 more rows
+# A tibble: 45 × 6
+   INTER_40 OCCUP_40 INTER_60 OCCUP_60 ILS_40 ILS_60
+      <dbl>    <dbl>    <dbl>    <dbl>  <dbl>  <dbl>
+ 1       76       69       76       72    145    148
+ 2       88       78       82       57    166    139
+ 3       80       91       72       71    171    143
+ 4       80       75       64       59    155    123
+ 5       83       82       77       55    165    132
+ 6       68       61       81       59    129    140
+ 7       52       64       72       75    116    147
+ 8       87       64       80       64    151    144
+ 9       94       72       71       67    166    138
+10       90       77       73       68    167    141
+# ℹ 35 more rows
+
+	Paired t-test
+
+data:  lesson23_exercise1_data$ILS_40 and lesson23_exercise1_data$ILS_60
+t = 5.8192, df = 44, p-value = 6.218e-07
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+  9.790511 20.165044
+sample estimates:
+mean difference 
+       14.97778 
+
+# A tibble: 45 × 7
+   INTER_40 OCCUP_40 INTER_60 OCCUP_60 ILS_40 ILS_60 difference
+      <dbl>    <dbl>    <dbl>    <dbl>  <dbl>  <dbl>      <dbl>
+ 1       76       69       76       72    145    148         -3
+ 2       88       78       82       57    166    139         27
+ 3       80       91       72       71    171    143         28
+ 4       80       75       64       59    155    123         32
+ 5       83       82       77       55    165    132         33
+ 6       68       61       81       59    129    140        -11
+ 7       52       64       72       75    116    147        -31
+ 8       87       64       80       64    151    144          7
+ 9       94       72       71       67    166    138         28
+10       90       77       73       68    167    141         26
+# ℹ 35 more rows
+null device 
+          1 
+# A tibble: 45 × 9
+   INTER_40 OCCUP_40 INTER_60 OCCUP_60 ILS_40 ILS_60 difference difference_inter
+      <dbl>    <dbl>    <dbl>    <dbl>  <dbl>  <dbl>      <dbl>            <dbl>
+ 1       76       69       76       72    145    148         -3                0
+ 2       88       78       82       57    166    139         27                6
+ 3       80       91       72       71    171    143         28                8
+ 4       80       75       64       59    155    123         32               16
+ 5       83       82       77       55    165    132         33                6
+ 6       68       61       81       59    129    140        -11              -13
+ 7       52       64       72       75    116    147        -31              -20
+ 8       87       64       80       64    151    144          7                7
+ 9       94       72       71       67    166    138         28               23
+10       90       77       73       68    167    141         26               17
+# ℹ 35 more rows
+# ℹ 1 more variable: difference_occup <dbl>
+
+	Paired t-test
+
+data:  lesson23_exercise1_data$INTER_40 and lesson23_exercise1_data$INTER_60
+t = 1.5396, df = 44, p-value = 0.1308
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -0.9887649  7.3887649
+sample estimates:
+mean difference 
+            3.2 
+
+
+	Paired t-test
+
+data:  lesson23_exercise1_data$OCCUP_40 and lesson23_exercise1_data$OCCUP_60
+t = 6.2233, df = 44, p-value = 1.584e-07
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+  7.963615 15.591941
+sample estimates:
+mean difference 
+       11.77778 
+
+null device 
+          1 
+null device 
+          1 
+    INTER_40        OCCUP_40        INTER_60     OCCUP_60         ILS_40     
+ Min.   : 52.0   Min.   :51.00   Min.   :63   Min.   :48.00   Min.   :116.0  
+ 1st Qu.: 71.0   1st Qu.:69.00   1st Qu.:70   1st Qu.:57.00   1st Qu.:145.0  
+ Median : 78.0   Median :73.00   Median :74   Median :62.00   Median :153.0  
+ Mean   : 78.2   Mean   :73.64   Mean   :75   Mean   :61.87   Mean   :151.8  
+ 3rd Qu.: 87.0   3rd Qu.:79.00   3rd Qu.:78   3rd Qu.:66.00   3rd Qu.:164.0  
+ Max.   :103.0   Max.   :94.00   Max.   :96   Max.   :75.00   Max.   :173.0  
+     ILS_60        difference     difference_inter difference_occup
+ Min.   :120.0   Min.   :-31.00   Min.   :-21.0    Min.   :-22.00  
+ 1st Qu.:130.0   1st Qu.:  5.00   1st Qu.: -5.0    1st Qu.:  3.00  
+ Median :135.0   Median : 16.00   Median :  3.0    Median : 13.00  
+ Mean   :136.9   Mean   : 14.98   Mean   :  3.2    Mean   : 11.78  
+ 3rd Qu.:144.0   3rd Qu.: 28.00   3rd Qu.: 10.0    3rd Qu.: 21.00  
+ Max.   :159.0   Max.   : 49.00   Max.   : 32.0    Max.   : 31.00  
+
+
+
+
+******Lesson 23 Exercises 6-8
+# A tibble: 24 × 2
+   HUSBAND  WIFE
+     <dbl> <dbl>
+ 1      47    50
+ 2      78    87
+ 3      56    62
+ 4      62    59
+ 5      60    68
+ 6      57    62
+ 7      62    85
+ 8      55    46
+ 9      57    61
+10      52    56
+# ℹ 14 more rows
+    HUSBAND           WIFE      
+ Min.   :42.00   Min.   :42.00  
+ 1st Qu.:54.75   1st Qu.:55.75  
+ Median :57.00   Median :62.00  
+ Mean   :57.46   Mean   :62.54  
+ 3rd Qu.:62.00   3rd Qu.:68.00  
+ Max.   :78.00   Max.   :87.00  
+
+	Paired t-test
+
+data:  lesson23_exercise2_data$HUSBAND and lesson23_exercise2_data$WIFE
+t = -3.2555, df = 23, p-value = 0.003483
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -8.313424 -1.853243
+sample estimates:
+mean difference 
+      -5.083333 
+
+null device 
+          1 
+    HUSBAND           WIFE      
+ Min.   :42.00   Min.   :42.00  
+ 1st Qu.:54.75   1st Qu.:55.75  
+ Median :57.00   Median :62.00  
+ Mean   :57.46   Mean   :62.54  
+ 3rd Qu.:62.00   3rd Qu.:68.00  
+ Max.   :78.00   Max.   :87.00  
+
+
+
+
+******Lesson 24
+# A tibble: 30 × 2
+   STRESS          TALK
+   <dbl+lbl>      <dbl>
+ 1 1 [Low Stress]    31
+ 2 1 [Low Stress]     5
+ 3 1 [Low Stress]     2
+ 4 1 [Low Stress]    78
+ 5 1 [Low Stress]    32
+ 6 1 [Low Stress]    17
+ 7 1 [Low Stress]    60
+ 8 1 [Low Stress]    30
+ 9 1 [Low Stress]    62
+10 1 [Low Stress]    79
+# ℹ 20 more rows
+     STRESS         TALK      
+ Min.   :1.0   Min.   : 0.00  
+ 1st Qu.:1.0   1st Qu.: 4.25  
+ Median :1.5   Median :30.50  
+ Mean   :1.5   Mean   :33.63  
+ 3rd Qu.:2.0   3rd Qu.:60.00  
+ Max.   :2.0   Max.   :93.00  
+
+	Two Sample t-test
+
+data:  TALK by STRESS
+t = 2.4297, df = 28, p-value = 0.02178
+alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
+95 percent confidence interval:
+  3.629962 42.636705
+sample estimates:
+mean in group 1 mean in group 2 
+       45.20000        22.06667 
+
+
+	Welch Two Sample t-test
+
+data:  TALK by STRESS
+t = 2.4297, df = 27.808, p-value = 0.02183
+alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
+95 percent confidence interval:
+  3.623904 42.642763
+sample estimates:
+mean in group 1 mean in group 2 
+       45.20000        22.06667 
+
+
+
+
+
+******Lesson 24 Exercises 1-5
+# A tibble: 40 × 2
+   WEIGHT          TIME
+   <dbl+lbl>      <dbl>
+ 1 1 [overweight]   585
+ 2 1 [overweight]   540
+ 3 1 [overweight]   660
+ 4 1 [overweight]   571
+ 5 1 [overweight]   584
+ 6 1 [overweight]   653
+ 7 1 [overweight]   574
+ 8 1 [overweight]   569
+ 9 1 [overweight]   619
+10 1 [overweight]   535
+# ℹ 30 more rows
+     WEIGHT          TIME      
+ Min.   :1.00   Min.   :478.0  
+ 1st Qu.:1.75   1st Qu.:601.5  
+ Median :2.00   Median :672.0  
+ Mean   :1.75   Mean   :671.0  
+ 3rd Qu.:2.00   3rd Qu.:729.2  
+ Max.   :2.00   Max.   :889.0  
+
+	Two Sample t-test
+
+data:  TIME by WEIGHT
+t = -3.975, df = 38, p-value = 0.0003041
+alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
+95 percent confidence interval:
+ -165.11576  -53.68424
+sample estimates:
+mean in group 1 mean in group 2 
+          589.0           698.4 
+
+
+	Welch Two Sample t-test
+
+data:  TIME by WEIGHT
+t = -5.3966, df = 30.828, p-value = 7.002e-06
+alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
+95 percent confidence interval:
+ -150.7542  -68.0458
+sample estimates:
+mean in group 1 mean in group 2 
+          589.0           698.4 
+
+[1] 10
+[1] 30
+[1] 589
+[1] 82.94892
+
+
+
+
+******Lesson 24 Exercises 6-10
+# A tibble: 40 × 2
+   WEIGHT          TIME
+   <dbl+lbl>      <dbl>
+ 1 1 [overweight]   585
+ 2 1 [overweight]   540
+ 3 1 [overweight]   660
+ 4 1 [overweight]   571
+ 5 1 [overweight]   584
+ 6 1 [overweight]   653
+ 7 1 [overweight]   574
+ 8 1 [overweight]   569
+ 9 1 [overweight]   619
+10 1 [overweight]   535
+# ℹ 30 more rows
+     WEIGHT          TIME      
+ Min.   :1.00   Min.   :478.0  
+ 1st Qu.:1.75   1st Qu.:601.5  
+ Median :2.00   Median :672.0  
+ Mean   :1.75   Mean   :671.0  
+ 3rd Qu.:2.00   3rd Qu.:729.2  
+ Max.   :2.00   Max.   :889.0  
