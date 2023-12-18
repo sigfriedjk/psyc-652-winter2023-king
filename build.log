@@ -1,26 +1,22 @@
-Sending build context to Docker daemon  3.197MB
-Step 1/8 : FROM r-base
+Sending build context to Docker daemon  3.273MB
+Step 1/6 : FROM r-base
  ---> a51ab79f0adf
-Step 2/8 : RUN R -e "install.packages('haven',dependencies=TRUE, repos='http://cran.rstudio.com/')"
+Step 2/6 : RUN R -e "install.packages('haven',dependencies=TRUE, repos='http://cran.rstudio.com/')"
  ---> Using cache
  ---> 27cb393cc68b
-Step 3/8 : RUN R -e "install.packages('tidyverse',dependencies=TRUE, repos='http://cran.rstudio.com/')"
+Step 3/6 : RUN R -e "install.packages('tidyverse',dependencies=TRUE, repos='http://cran.rstudio.com/')"
  ---> Using cache
  ---> 776558f6a9be
-Step 4/8 : RUN R -e "install.packages('gtsummary',dependencies=TRUE, repos='http://cran.rstudio.com/')"
+Step 4/6 : RUN R -e "install.packages('gtsummary',dependencies=TRUE, repos='http://cran.rstudio.com/')"
  ---> Using cache
  ---> eb6ce0e44a59
-Step 5/8 : COPY ./scripts /usr/local/src/myscripts
- ---> 5e394331c3e8
-Step 6/8 : COPY ./data_sets /usr/local/src/myscripts/data_sets
- ---> 370279f185f6
-Step 7/8 : WORKDIR /usr/local/src/myscripts
- ---> Running in 29de006f6899
-Removing intermediate container 29de006f6899
- ---> a49cbc4b7909
-Step 8/8 : CMD ["bash", "main.sh"]
- ---> Running in b3cf44bfa7a6
-Removing intermediate container b3cf44bfa7a6
- ---> 4c81018d7d03
-Successfully built 4c81018d7d03
+Step 5/6 : WORKDIR /usr/local/src/myscripts
+ ---> Running in 19e01d09f88a
+Removing intermediate container 19e01d09f88a
+ ---> 9c2b13a886e7
+Step 6/6 : CMD ["bash", "main.sh"]
+ ---> Running in 2a03aba3daae
+Removing intermediate container 2a03aba3daae
+ ---> 07e11153d18c
+Successfully built 07e11153d18c
 Successfully tagged myscript:latest
