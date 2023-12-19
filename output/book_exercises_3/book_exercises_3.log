@@ -283,6 +283,11 @@ null device
 
 
 
+*******************************************************
+
+
+
+
 ******Lesson 23 Exercises 6-8
 # A tibble: 24 × 2
    HUSBAND  WIFE
@@ -317,142 +322,17 @@ sample estimates:
 mean difference 
       -5.083333 
 
-null device 
-          1 
-    HUSBAND           WIFE      
- Min.   :42.00   Min.   :42.00  
- 1st Qu.:54.75   1st Qu.:55.75  
- Median :57.00   Median :62.00  
- Mean   :57.46   Mean   :62.54  
- 3rd Qu.:62.00   3rd Qu.:68.00  
- Max.   :78.00   Max.   :87.00  
-
-
-
-
-******Lesson 24
-# A tibble: 30 × 2
-   STRESS          TALK
-   <dbl+lbl>      <dbl>
- 1 1 [Low Stress]    31
- 2 1 [Low Stress]     5
- 3 1 [Low Stress]     2
- 4 1 [Low Stress]    78
- 5 1 [Low Stress]    32
- 6 1 [Low Stress]    17
- 7 1 [Low Stress]    60
- 8 1 [Low Stress]    30
- 9 1 [Low Stress]    62
-10 1 [Low Stress]    79
-# ℹ 20 more rows
-     STRESS         TALK      
- Min.   :1.0   Min.   : 0.00  
- 1st Qu.:1.0   1st Qu.: 4.25  
- Median :1.5   Median :30.50  
- Mean   :1.5   Mean   :33.63  
- 3rd Qu.:2.0   3rd Qu.:60.00  
- Max.   :2.0   Max.   :93.00  
-
-	Two Sample t-test
-
-data:  TALK by STRESS
-t = 2.4297, df = 28, p-value = 0.02178
-alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
-95 percent confidence interval:
-  3.629962 42.636705
-sample estimates:
-mean in group 1 mean in group 2 
-       45.20000        22.06667 
-
-
-	Welch Two Sample t-test
-
-data:  TALK by STRESS
-t = 2.4297, df = 27.808, p-value = 0.02183
-alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
-95 percent confidence interval:
-  3.623904 42.642763
-sample estimates:
-mean in group 1 mean in group 2 
-       45.20000        22.06667 
-
-
-
-
-
-******Lesson 24 Exercises 1-5
-# A tibble: 40 × 2
-   WEIGHT          TIME
-   <dbl+lbl>      <dbl>
- 1 1 [overweight]   585
- 2 1 [overweight]   540
- 3 1 [overweight]   660
- 4 1 [overweight]   571
- 5 1 [overweight]   584
- 6 1 [overweight]   653
- 7 1 [overweight]   574
- 8 1 [overweight]   569
- 9 1 [overweight]   619
-10 1 [overweight]   535
-# ℹ 30 more rows
-     WEIGHT          TIME      
- Min.   :1.00   Min.   :478.0  
- 1st Qu.:1.75   1st Qu.:601.5  
- Median :2.00   Median :672.0  
- Mean   :1.75   Mean   :671.0  
- 3rd Qu.:2.00   3rd Qu.:729.2  
- Max.   :2.00   Max.   :889.0  
-
-	Two Sample t-test
-
-data:  TIME by WEIGHT
-t = -3.975, df = 38, p-value = 0.0003041
-alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
-95 percent confidence interval:
- -165.11576  -53.68424
-sample estimates:
-mean in group 1 mean in group 2 
-          589.0           698.4 
-
-
-	Welch Two Sample t-test
-
-data:  TIME by WEIGHT
-t = -5.3966, df = 30.828, p-value = 7.002e-06
-alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
-95 percent confidence interval:
- -150.7542  -68.0458
-sample estimates:
-mean in group 1 mean in group 2 
-          589.0           698.4 
-
-[1] 10
-[1] 30
-[1] 589
-[1] 82.94892
-
-
-
-
-******Lesson 24 Exercises 6-10
-# A tibble: 40 × 2
-   WEIGHT          TIME
-   <dbl+lbl>      <dbl>
- 1 1 [overweight]   585
- 2 1 [overweight]   540
- 3 1 [overweight]   660
- 4 1 [overweight]   571
- 5 1 [overweight]   584
- 6 1 [overweight]   653
- 7 1 [overweight]   574
- 8 1 [overweight]   569
- 9 1 [overweight]   619
-10 1 [overweight]   535
-# ℹ 30 more rows
-     WEIGHT          TIME      
- Min.   :1.00   Min.   :478.0  
- 1st Qu.:1.75   1st Qu.:601.5  
- Median :2.00   Median :672.0  
- Mean   :1.75   Mean   :671.0  
- 3rd Qu.:2.00   3rd Qu.:729.2  
- Max.   :2.00   Max.   :889.0  
+# A tibble: 48 × 2
+   stress  value
+   <chr>   <dbl>
+ 1 HUSBAND    47
+ 2 WIFE       50
+ 3 HUSBAND    78
+ 4 WIFE       87
+ 5 HUSBAND    56
+ 6 WIFE       62
+ 7 HUSBAND    62
+ 8 WIFE       59
+ 9 HUSBAND    60
+10 WIFE       68
+# ℹ 38 more rows

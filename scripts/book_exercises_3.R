@@ -1,6 +1,7 @@
 library(haven)
 library(dplyr)
 library(ggplot2)
+library(tidyr)
 writeLines("\n\n\n\n******Starting Book Exercises 3")
 
 directory <- "data_sets/Green_Salkind_SPSS_Data_Sets/"
@@ -32,7 +33,9 @@ lesson24_exercise2_data <- read_sav(lesson24_exercisefilename2)
 
 writeLines("Read Complete")
 
-
+#---------------------------------------------------------------------
+#---------------------------------------------------------------------
+#---------------------------------------------------------------------
 writeLines("\n\n\n\n******Starting Section 22.4")
 lesson22_data
 
@@ -70,6 +73,11 @@ hist(lesson22_exercise2_data$HAP_SAD,
 )
 
 dev.off()
+
+writeLines("\n\n\n\n******Ending Lesson 22")
+#---------------------------------------------------------------------
+#---------------------------------------------------------------------
+#---------------------------------------------------------------------
 
 writeLines("\n\n\n\n******Starting Section 23.1")
 lesson23_data
@@ -147,7 +155,7 @@ write_sav(lesson23_exercise1_data, "/tmp/book_exercises_3/king-lesson23e1.sav")
 
 summary(lesson23_exercise1_data)
 
-
+writeLines("\n\n\n\n*******************************************************")
 writeLines("\n\n\n\n******Lesson 23 Exercises 6-8")
 lesson23_exercise2_data
 
@@ -155,11 +163,17 @@ summary(lesson23_exercise2_data)
 
 t.test(lesson23_exercise2_data$HUSBAND, lesson23_exercise2_data$WIFE, paired=TRUE)
 
+lesson23_exercise2_data %>%
+    pivot_longer(
+        cols = c("HUSBAND", "WIFE"),
+        names_to = "stress"
+    )
+
 jpeg(filename="/tmp/book_exercises_3/lesson23exercise8.jpg",width=480,height=480)
 
-#ggplot(lesson23_exercise2_data) +
-#  aes(x = lesson23_exercise2_data, y = lesson23_exercise2_data.Length) +
-#  geom_boxplot()
+ggplot(lesson23_exercise2_data) +
+  aes(x = lesson23_exercise2_data, y = lesson23_exercise2_data.Length) +
+  geom_boxplot()
   
   
 dev.off()
@@ -167,6 +181,12 @@ dev.off()
 write_sav(lesson23_exercise2_data, "/tmp/book_exercises_3/king-lesson23e2.sav")
 
 summary(lesson23_exercise2_data)
+
+writeLines("\n\n\n\n******Ending Lesson 23")
+#---------------------------------------------------------------------
+#---------------------------------------------------------------------
+#---------------------------------------------------------------------
+
 
 writeLines("\n\n\n\n******Lesson 24")
 lesson24_data
@@ -181,9 +201,17 @@ write_sav(lesson24_data, "/tmp/book_exercises_3/king-lesson24d1.sav")
 writeLines("\n\n\n\n******Lesson 24 Exercises 1-5")
 lesson24_exercise1_data
 summary(lesson24_exercise1_data)
+table(lesson24_exercise1_data)
+glimpse(lesson24_exercise1_data)
 
-t.test(TIME ~ WEIGHT, data = lesson24_exercise1_data, var.equal=TRUE)
-t.test(TIME ~ WEIGHT, data = lesson24_exercise1_data, var.equal=FALSE)
+
+lesson24_exercise1_data <- lesson24_exercise1_data %>%
+    mutate(weight_name= ifelse(WEIGHT == 1,"Overweight","Normal"))
+
+
+
+t.test(TIME,WEIGHT, data = lesson24_exercise1_data, var.equal=TRUE)
+t.test(TIME,WEIGHT, data = lesson24_exercise1_data, var.equal=FALSE)
 
 overweight_only <- lesson24_exercise1_data %>% filter(WEIGHT == 1)
 length(overweight_only$TIME)
@@ -193,12 +221,19 @@ length(normalweight_only$TIME)
 mean(overweight_only$TIME)
 sd(normalweight_only$TIME)
 
+jpeg(filename="/tmp/book_exercises_3/lesson24exercise5.jpg",width=480,height=480)
 
-
+ggplot(lesson24_exercise1_data) +
+  aes(x = weight_name, y = TIME) +
+  geom_boxplot(outlier.colour="black", outlier.shape=16,
+             outlier.size=2, notch=FALSE)
+ 
+  
+dev.off()
 write_sav(lesson24_exercise1_data, "/tmp/book_exercises_3/king-lesson24e1.sav")
 writeLines("\n\n\n\n******Lesson 24 Exercises 6-10")
-lesson24_exercise1_data
-summary(lesson24_exercise1_data)
+lesson24_exercise2_data
+summary(lesson24_exercise2_data)
 
 
 
