@@ -8,7 +8,7 @@ One sample t-test executed with test value of "50"
 
 `t.test(lesson22_data, mu = 50)`
 
-Output is 
+Output for the t-test was 
 
 ```
 t = 2.4573, df = 29, p-value = 0.02022
@@ -19,9 +19,9 @@ sample estimates:
 mean of x 
  54.63333 
 ```
-meaning that the p value is .02, 
+This is sigificant at p =.05 because t(29) = 2.45 > 2.04
 
-d is therefore = t/sqrt(N) = 2.4573 / sqrt(30) = 0.448639546852 or *0.45*
+d, effect size, is therefore = t/sqrt(N) = 2.4573 / sqrt(30) = 0.448639546852 or *0.45*
 
 ### Lesson 22 Exercises
 
