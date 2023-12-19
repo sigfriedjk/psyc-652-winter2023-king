@@ -1,7 +1,17 @@
+# ip = as.data.frame(installed.packages()[,c(1,3:4)])
+# ip = ip[is.na(ip$Priority),1:2,drop=FALSE]
+# ip
+
 library(haven)
 library(dplyr)
 library(ggplot2)
 library(tidyr)
+#library(car)
+
+computeCohenD <- function(data, t_test_result){
+  return (unname(t_test_result)[[1]] / sqrt(nrow(data)))
+}
+
 writeLines("\n\n\n\n******Starting Book Exercises 3")
 
 directory <- "data_sets/Green_Salkind_SPSS_Data_Sets/"
@@ -84,9 +94,9 @@ lesson23_data
 
 summary(lesson23_data)
 
-
 t.test(lesson23_data$PAY, lesson23_data$SECURITY, paired = TRUE)
 
+writeLines("Saving SPSS File")
 write_sav(lesson23_data, "/tmp/book_exercises_3/king-lesson23d1.sav")
 
 
@@ -163,16 +173,17 @@ summary(lesson23_exercise2_data)
 
 t.test(lesson23_exercise2_data$HUSBAND, lesson23_exercise2_data$WIFE, paired=TRUE)
 
-lesson23_exercise2_data %>%
+lesson23_longer <- lesson23_exercise2_data %>%
     pivot_longer(
         cols = c("HUSBAND", "WIFE"),
-        names_to = "stress"
+        names_to = "role"
     )
+lesson23_longer
 
 jpeg(filename="/tmp/book_exercises_3/lesson23exercise8.jpg",width=480,height=480)
 
-ggplot(lesson23_exercise2_data) +
-  aes(x = lesson23_exercise2_data, y = lesson23_exercise2_data.Length) +
+ggplot(lesson23_longer) +
+  aes(x = role, y = value) +
   geom_boxplot()
   
   
@@ -192,13 +203,12 @@ writeLines("\n\n\n\n******Lesson 24")
 lesson24_data
 summary(lesson24_data)
 
-t.test(TALK ~ STRESS, data = lesson24_data, var.equal=TRUE)
+t.test(lesson24_data$TALK, lesson24_data$STRESS, data = lesson24_data, var.equal=TRUE)
 
-t.test(TALK ~ STRESS, data = lesson24_data, var.equal=FALSE)
+t.test(lesson24_data$TALK, lesson24_data$STRESS, data = lesson24_data, var.equal=FALSE)
 
-
-write_sav(lesson24_data, "/tmp/book_exercises_3/king-lesson24d1.sav")
 writeLines("\n\n\n\n******Lesson 24 Exercises 1-5")
+
 lesson24_exercise1_data
 summary(lesson24_exercise1_data)
 table(lesson24_exercise1_data)
@@ -209,9 +219,8 @@ lesson24_exercise1_data <- lesson24_exercise1_data %>%
     mutate(weight_name= ifelse(WEIGHT == 1,"Overweight","Normal"))
 
 
-
-t.test(TIME,WEIGHT, data = lesson24_exercise1_data, var.equal=TRUE)
-t.test(TIME,WEIGHT, data = lesson24_exercise1_data, var.equal=FALSE)
+t.test(lesson24_exercise1_data$TIME,lesson24_exercise1_data$WEIGHT, data = lesson24_exercise1_data, var.equal=TRUE)
+t.test(lesson24_exercise1_data$TIME,lesson24_exercise1_data$WEIGHT, data = lesson24_exercise1_data, var.equal=FALSE)
 
 overweight_only <- lesson24_exercise1_data %>% filter(WEIGHT == 1)
 length(overweight_only$TIME)
@@ -235,7 +244,15 @@ writeLines("\n\n\n\n******Lesson 24 Exercises 6-10")
 lesson24_exercise2_data
 summary(lesson24_exercise2_data)
 
+writeLines("Adding a new variable for the difference in test scores")
+lesson24_exercise2_data <- lesson24_exercise2_data %>%
+    mutate(difference = POSTTEST-PRETEST, inclusion = ifelse(INTEGRAT==1,1,2))
+    
+lesson24_exercise2_data
+
+t.test(lesson24_exercise2_data$inclusion,lesson24_exercise2_data$difference, var.equal = TRUE)
+t.test(lesson24_exercise2_data$inclusion,lesson24_exercise2_data$difference, var.equal = FALSE)
 
 
-
-write_sav(lesson24_exercise1_data, "/tmp/book_exercises_3/king-lesson24e2.sav")
+write_sav(lesson24_exercise2_data, "/tmp/book_exercises_3/king-lesson24e2.sav")
+writeLines("\n\n\n\n******End Lesson 24")

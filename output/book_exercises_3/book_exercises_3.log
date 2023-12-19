@@ -127,6 +127,11 @@ null device
 
 
 
+******Ending Lesson 22
+
+
+
+
 ******Starting Section 23.1
 # A tibble: 30 × 2
      PAY SECURITY
@@ -161,6 +166,7 @@ sample estimates:
 mean difference 
        1.166667 
 
+Saving SPSS File
 
 
 
@@ -323,7 +329,7 @@ mean difference
       -5.083333 
 
 # A tibble: 48 × 2
-   stress  value
+   role    value
    <chr>   <dbl>
  1 HUSBAND    47
  2 WIFE       50
@@ -336,3 +342,209 @@ mean difference
  9 HUSBAND    60
 10 WIFE       68
 # ℹ 38 more rows
+null device 
+          1 
+    HUSBAND           WIFE      
+ Min.   :42.00   Min.   :42.00  
+ 1st Qu.:54.75   1st Qu.:55.75  
+ Median :57.00   Median :62.00  
+ Mean   :57.46   Mean   :62.54  
+ 3rd Qu.:62.00   3rd Qu.:68.00  
+ Max.   :78.00   Max.   :87.00  
+
+
+
+
+******Ending Lesson 23
+
+
+
+
+******Lesson 24
+# A tibble: 30 × 2
+   STRESS          TALK
+   <dbl+lbl>      <dbl>
+ 1 1 [Low Stress]    31
+ 2 1 [Low Stress]     5
+ 3 1 [Low Stress]     2
+ 4 1 [Low Stress]    78
+ 5 1 [Low Stress]    32
+ 6 1 [Low Stress]    17
+ 7 1 [Low Stress]    60
+ 8 1 [Low Stress]    30
+ 9 1 [Low Stress]    62
+10 1 [Low Stress]    79
+# ℹ 20 more rows
+     STRESS         TALK      
+ Min.   :1.0   Min.   : 0.00  
+ 1st Qu.:1.0   1st Qu.: 4.25  
+ Median :1.5   Median :30.50  
+ Mean   :1.5   Mean   :33.63  
+ 3rd Qu.:2.0   3rd Qu.:60.00  
+ Max.   :2.0   Max.   :93.00  
+
+	Two Sample t-test
+
+data:  lesson24_data$TALK and lesson24_data$STRESS
+t = 6.2417, df = 58, p-value = 5.427e-08
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 21.82809 42.43858
+sample estimates:
+mean of x mean of y 
+ 33.63333   1.50000 
+
+
+	Welch Two Sample t-test
+
+data:  lesson24_data$TALK and lesson24_data$STRESS
+t = 6.2417, df = 29.019, p-value = 8.203e-07
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 21.60438 42.66229
+sample estimates:
+mean of x mean of y 
+ 33.63333   1.50000 
+
+
+
+
+
+******Lesson 24 Exercises 1-5
+# A tibble: 40 × 2
+   WEIGHT          TIME
+   <dbl+lbl>      <dbl>
+ 1 1 [overweight]   585
+ 2 1 [overweight]   540
+ 3 1 [overweight]   660
+ 4 1 [overweight]   571
+ 5 1 [overweight]   584
+ 6 1 [overweight]   653
+ 7 1 [overweight]   574
+ 8 1 [overweight]   569
+ 9 1 [overweight]   619
+10 1 [overweight]   535
+# ℹ 30 more rows
+     WEIGHT          TIME      
+ Min.   :1.00   Min.   :478.0  
+ 1st Qu.:1.75   1st Qu.:601.5  
+ Median :2.00   Median :672.0  
+ Mean   :1.75   Mean   :671.0  
+ 3rd Qu.:2.00   3rd Qu.:729.2  
+ Max.   :2.00   Max.   :889.0  
+      TIME
+WEIGHT 478 535 540 569 571 574 584 585 587 600 602 606 619 620 635 644 653 660
+     1   0   1   1   1   1   1   1   1   0   0   0   0   1   0   0   0   1   1
+     2   1   0   0   0   0   0   0   0   1   1   1   1   0   1   1   1   0   0
+      TIME
+WEIGHT 661 672 675 695 697 700 702 703 708 722 729 730 761 764 782 783 789 806
+     1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+     2   1   2   1   1   1   1   1   1   1   1   1   2   1   1   1   1   1   1
+      TIME
+WEIGHT 810 889
+     1   0   0
+     2   1   1
+Rows: 40
+Columns: 2
+$ WEIGHT <dbl+lbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,…
+$ TIME   <dbl> 585, 540, 660, 571, 584, 653, 574, 569, 619, 535, 697, 782, 587…
+
+	Two Sample t-test
+
+data:  lesson24_exercise1_data$TIME and lesson24_exercise1_data$WEIGHT
+t = 47.816, df = 78, p-value < 2.2e-16
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 641.4332 697.1668
+sample estimates:
+mean of x mean of y 
+   671.05      1.75 
+
+
+	Welch Two Sample t-test
+
+data:  lesson24_exercise1_data$TIME and lesson24_exercise1_data$WEIGHT
+t = 47.816, df = 39.002, p-value < 2.2e-16
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 640.9875 697.6125
+sample estimates:
+mean of x mean of y 
+   671.05      1.75 
+
+[1] 10
+[1] 30
+[1] 589
+[1] 82.94892
+null device 
+          1 
+
+
+
+
+******Lesson 24 Exercises 6-10
+# A tibble: 40 × 3
+   INTEGRAT           PRETEST POSTTEST
+   <dbl+lbl>            <dbl>    <dbl>
+ 1 1 [not integrated]      86       96
+ 2 1 [not integrated]      99       85
+ 3 1 [not integrated]      83       95
+ 4 1 [not integrated]      94       96
+ 5 1 [not integrated]      72       79
+ 6 1 [not integrated]      73       82
+ 7 1 [not integrated]      95      100
+ 8 1 [not integrated]     124      114
+ 9 1 [not integrated]      97       90
+10 1 [not integrated]      95       96
+# ℹ 30 more rows
+    INTEGRAT        PRETEST          POSTTEST     
+ Min.   :1.000   Min.   : 72.00   Min.   : 79.00  
+ 1st Qu.:1.000   1st Qu.: 85.75   1st Qu.: 88.75  
+ Median :2.000   Median : 95.00   Median : 96.50  
+ Mean   :1.625   Mean   : 96.45   Mean   :103.03  
+ 3rd Qu.:2.000   3rd Qu.:108.50   3rd Qu.:119.25  
+ Max.   :2.000   Max.   :124.00   Max.   :152.00  
+Adding a new variable for the difference in test scores
+# A tibble: 40 × 5
+   INTEGRAT           PRETEST POSTTEST difference inclusion
+   <dbl+lbl>            <dbl>    <dbl>      <dbl>     <dbl>
+ 1 1 [not integrated]      86       96         10         1
+ 2 1 [not integrated]      99       85        -14         1
+ 3 1 [not integrated]      83       95         12         1
+ 4 1 [not integrated]      94       96          2         1
+ 5 1 [not integrated]      72       79          7         1
+ 6 1 [not integrated]      73       82          9         1
+ 7 1 [not integrated]      95      100          5         1
+ 8 1 [not integrated]     124      114        -10         1
+ 9 1 [not integrated]      97       90         -7         1
+10 1 [not integrated]      95       96          1         1
+# ℹ 30 more rows
+
+	Two Sample t-test
+
+data:  lesson24_exercise2_data$inclusion and lesson24_exercise2_data$difference
+t = -2.192, df = 78, p-value = 0.03136
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -9.4457255 -0.4542745
+sample estimates:
+mean of x mean of y 
+    1.625     6.575 
+
+
+	Welch Two Sample t-test
+
+data:  lesson24_exercise2_data$inclusion and lesson24_exercise2_data$difference
+t = -2.192, df = 39.092, p-value = 0.0344
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -9.5172914 -0.3827086
+sample estimates:
+mean of x mean of y 
+    1.625     6.575 
+
+
+
+
+
+******End Lesson 24

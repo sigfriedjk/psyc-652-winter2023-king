@@ -99,40 +99,8 @@ However, for interpersonal stress, t(44)=1.54, p=.13, we cannot reject the null 
 
 ### Lesson 24
 
-Two indepedent t tests assuming and not assuming equal variables using
-
-```
-t.test(TALK ~ STRESS, data = lesson24_data, var.equal=TRUE)
-
-t.test(TALK ~ STRESS, data = lesson24_data, var.equal=FALSE)
-```
-
-Output
-
-```
-        Two Sample t-test
-
-data:  TALK by STRESS
-t = 2.4297, df = 28, p-value = 0.02178
-alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
-95 percent confidence interval:
-  3.629962 42.636705
-sample estimates:
-mean in group 1 mean in group 2 
-       45.20000        22.06667 
-
-
-        Welch Two Sample t-test
-
-data:  TALK by STRESS
-t = 2.4297, df = 27.808, p-value = 0.02183
-alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
-95 percent confidence interval:
-  3.623904 42.642763
-sample estimates:
-mean in group 1 mean in group 2 
-       45.20000        22.06667 
-```
+Ran an independent samples t test on the stress and talkative levels with the following line of code
+`t.test(lesson24_data$TALK, lesson24_data$STRESS, data = lesson24_data, var.equal=TRUE)`
 
 ### Lesson 24 Exercises 1-5
 
@@ -146,4 +114,50 @@ mean in group 1 mean in group 2
 
 
 ### Lesson 24 Exercises 6-10
-In progress
+
+6. Added a new variable for the difference with this line of code (also added a numeric coding for inclusion)
+```
+lesson24_exercise2_data <- lesson24_exercise2_data %>%
+    mutate(difference = POSTTEST-PRETEST, inclusion = ifelse(INTEGRAT==1,1,2))
+```
+
+
+7. Two independent t tests for the relationahip between teaching in an inclusive setting and difference in perception of inclusion assuming, both assuming the the differences in mean are equal and not equal
+
+```
+t.test(lesson24_exercise2_data$inclusion,lesson24_exercise2_data$difference, var.equal = TRUE)
+t.test(lesson24_exercise2_data$inclusion,lesson24_exercise2_data$difference, var.equal = FALSE)
+
+```
+
+Output
+
+```
+        Two Sample t-test
+
+data:  lesson24_exercise2_data$inclusion and lesson24_exercise2_data$difference
+t = -2.192, df = 78, p-value = 0.03136
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -9.4457255 -0.4542745
+sample estimates:
+mean of x mean of y 
+    1.625     6.575 
+
+
+        Welch Two Sample t-test
+
+data:  lesson24_exercise2_data$inclusion and lesson24_exercise2_data$difference
+t = -2.192, df = 39.092, p-value = 0.0344
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -9.5172914 -0.3827086
+sample estimates:
+mean of x mean of y 
+    1.625     6.575 
+```
+8. Running in SPSS to perform Levene's test, we found a p =.05.
+![image of Levene's test for Lesson 24 Exercise 8](../output/lesson24_exercise8-levene.png "image of Levene's test for Lesson 24 Exercise 8").  This means that the assumption that the variance means are equal may not be true, and we may need to assume they are not.  (or if we continue with this assumption, our error value for the final effect could be questionable)
+
+9. Because of Levene's test it is most appropriate to use t = 2.11
+10. For significance, we need t > 2.02, so for t(35.8) = 2.11 and p = .042, p = .042 is sigificant at p< .05. 
