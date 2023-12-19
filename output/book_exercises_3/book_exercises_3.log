@@ -520,28 +520,28 @@ Adding a new variable for the difference in test scores
 10 1 [not integrated]      95       96          1         1
 # ℹ 30 more rows
 
-	Two Sample t-test
-
-data:  lesson24_exercise2_data$inclusion and lesson24_exercise2_data$difference
-t = -2.192, df = 78, p-value = 0.03136
-alternative hypothesis: true difference in means is not equal to 0
-95 percent confidence interval:
- -9.4457255 -0.4542745
-sample estimates:
-mean of x mean of y 
-    1.625     6.575 
-
-
 	Welch Two Sample t-test
 
-data:  lesson24_exercise2_data$inclusion and lesson24_exercise2_data$difference
-t = -2.192, df = 39.092, p-value = 0.0344
-alternative hypothesis: true difference in means is not equal to 0
+data:  lesson24_exercise2_data$difference by lesson24_exercise2_data$inclusion
+t = -2.111, df = 35.852, p-value = 0.04182
+alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
 95 percent confidence interval:
- -9.5172914 -0.3827086
+ -15.8177855  -0.3155479
 sample estimates:
-mean of x mean of y 
-    1.625     6.575 
+mean in group 1 mean in group 2 
+       1.533333        9.600000 
+
+
+	Two Sample t-test
+
+data:  lesson24_exercise2_data$difference by lesson24_exercise2_data$inclusion
+t = -1.7777, df = 38, p-value = 0.08346
+alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
+95 percent confidence interval:
+ -17.252941   1.119608
+sample estimates:
+mean in group 1 mean in group 2 
+       1.533333        9.600000 
 
 
 

@@ -250,8 +250,9 @@ lesson24_exercise2_data <- lesson24_exercise2_data %>%
     
 lesson24_exercise2_data
 
-t.test(lesson24_exercise2_data$inclusion,lesson24_exercise2_data$difference, var.equal = TRUE)
-t.test(lesson24_exercise2_data$inclusion,lesson24_exercise2_data$difference, var.equal = FALSE)
+t.test(lesson24_exercise2_data$difference ~ lesson24_exercise2_data$inclusion, var.equal=FALSE)
+t.test(lesson24_exercise2_data$difference ~ lesson24_exercise2_data$inclusion, var.equal=TRUE)
+
 
 
 write_sav(lesson24_exercise2_data, "/tmp/book_exercises_3/king-lesson24e2.sav")

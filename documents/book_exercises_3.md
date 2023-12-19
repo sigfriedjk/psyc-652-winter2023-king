@@ -125,39 +125,41 @@ lesson24_exercise2_data <- lesson24_exercise2_data %>%
 7. Two independent t tests for the relationahip between teaching in an inclusive setting and difference in perception of inclusion assuming, both assuming the the differences in mean are equal and not equal
 
 ```
-t.test(lesson24_exercise2_data$inclusion,lesson24_exercise2_data$difference, var.equal = TRUE)
-t.test(lesson24_exercise2_data$inclusion,lesson24_exercise2_data$difference, var.equal = FALSE)
-
+t.test(lesson24_exercise2_data$difference ~ lesson24_exercise2_data$inclusion, var.equal=FALSE)
+t.test(lesson24_exercise2_data$difference ~ lesson24_exercise2_data$inclusion, var.equal=TRUE)
 ```
 
 Output
 
 ```
-        Two Sample t-test
-
-data:  lesson24_exercise2_data$inclusion and lesson24_exercise2_data$difference
-t = -2.192, df = 78, p-value = 0.03136
-alternative hypothesis: true difference in means is not equal to 0
-95 percent confidence interval:
- -9.4457255 -0.4542745
-sample estimates:
-mean of x mean of y 
-    1.625     6.575 
-
-
         Welch Two Sample t-test
 
-data:  lesson24_exercise2_data$inclusion and lesson24_exercise2_data$difference
-t = -2.192, df = 39.092, p-value = 0.0344
-alternative hypothesis: true difference in means is not equal to 0
+data:  lesson24_exercise2_data$difference by lesson24_exercise2_data$inclusion
+t = -2.111, df = 35.852, p-value = 0.04182
+alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
 95 percent confidence interval:
- -9.5172914 -0.3827086
+ -15.8177855  -0.3155479
 sample estimates:
-mean of x mean of y 
-    1.625     6.575 
+mean in group 1 mean in group 2 
+       1.533333        9.600000 
+
+
+        Two Sample t-test
+
+data:  lesson24_exercise2_data$difference by lesson24_exercise2_data$inclusion
+t = -1.7777, df = 38, p-value = 0.08346
+alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
+95 percent confidence interval:
+ -17.252941   1.119608
+sample estimates:
+mean in group 1 mean in group 2 
+       1.533333        9.600000 
+
 ```
 8. Running in SPSS to perform Levene's test, we found a p =.05.
-![image of Levene's test for Lesson 24 Exercise 8](../output/lesson24_exercise8-levene.png "image of Levene's test for Lesson 24 Exercise 8").  This means that the assumption that the variance means are equal may not be true, and we may need to assume they are not.  (or if we continue with this assumption, our error value for the final effect could be questionable)
+![image of Levene's test for Lesson 24 Exercise 8](../output/book_exercises_3/lesson24_exercise8-levene.png "image of Levene's test for Lesson 24 Exercise 8").  This means that the assumption that the variance means are equal may not be true, and we may need to assume they are not.  (or if we continue with this assumption, our error value for the final effect could be questionable)
 
 9. Because of Levene's test it is most appropriate to use t = 2.11
 10. For significance, we need t > 2.02, so for t(35.8) = 2.11 and p = .042, p = .042 is sigificant at p< .05. 
+
+An independent-samples  test was conducted to evaluate the hypothesis that teaching in an inclusive environment yields a positive view of inclusivity. The test was significant t(35.8)=-2.11, p=.042 but the results were based on non-equal variances because the sample failed the Levene test. The 95% confidence interval for difference in means ranged from -15 to -.03. 
