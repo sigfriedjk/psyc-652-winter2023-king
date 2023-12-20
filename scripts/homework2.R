@@ -2,6 +2,9 @@ library(haven)
 library(dplyr)
 library(ggplot2)
 library(tidyr)
+library(car)
+#library(effsize)
+
 
 computeCohenD <- function(data, t_test_result){
   return (unname(t_test_result)[[1]] / sqrt(nrow(data)))
@@ -27,6 +30,10 @@ table(data_frame$Employee_Type)
 writeLines("\nFrequencies for Gender")
 table(data_frame$Gender)
 
+#----------------------------------------------------------------
+#----------------------------------------------------------------
+#----------------------------------------------------------------
+
 writeLines("\n\n Starting Question 1")
 question1 <-t.test(data_frame$Motivation, mu=5)
 question1
@@ -48,11 +55,37 @@ hist(data_frame$Motivation,
 
 dev.off()
 
+#----------------------------------------------------------------
+#----------------------------------------------------------------
+#----------------------------------------------------------------
 
 writeLines("\n\n Starting Question 2")
 t.test(data_frame$Motivation ~ data_frame$Gender, var.equal=TRUE)
 t.test(data_frame$Motivation ~ data_frame$Gender, var.equal=FALSE)
 
+writeLines("Coding gender as a categorical variable")
+
+question2 <- data_frame %>% 
+   mutate(Gender_Name = ifelse(Gender==1, "FEMALE", "MALE"))
+
+writeLines("Running Levene Test")
+result = leveneTest(Motivation ~ Gender_Name, question2)
+print(result)
+
+jpeg(filename="/tmp/homework2/question2.jpg",width=480,height=480)
+
+ggplot(question2) +
+  aes(x = Gender_Name, y = Motivation) +
+  geom_boxplot(outlier.colour="black", outlier.shape=16,
+             outlier.size=2, notch=FALSE)
+ 
+  
+dev.off()
+
+
+#----------------------------------------------------------------
+#----------------------------------------------------------------
+#----------------------------------------------------------------
 writeLines("\n\n Starting Question 3")
 
 question3 <- t.test(data_frame$Motivation, data_frame$Commitment, paired=TRUE)
@@ -89,3 +122,6 @@ dev.off()
 
 write_sav(data_frame, "/tmp/homework2/king-homework2.sav")
 writeLines("\n\n\n\n******End Homework 2")
+#----------------------------------------------------------------
+#----------------------------------------------------------------
+#----------------------------------------------------------------

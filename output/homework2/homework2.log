@@ -101,6 +101,14 @@ sample estimates:
 mean in group 1 mean in group 2 
        5.000000        5.777778 
 
+Coding gender as a categorical variable
+Running Levene Test
+Levene's Test for Homogeneity of Variance (center = median)
+      Df F value Pr(>F)
+group  1  1.8621 0.1825
+      30               
+null device 
+          1 
 
 
  Starting Question 3
