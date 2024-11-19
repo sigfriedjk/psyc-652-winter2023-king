@@ -1,12 +1,10 @@
-# ip = as.data.frame(installed.packages()[,c(1,3:4)])
-# ip = ip[is.na(ip$Priority),1:2,drop=FALSE]
-# ip
+
 
 library(haven)
 library(dplyr)
 library(ggplot2)
 library(tidyr)
-#library(car)
+
 
 computeCohenD <- function(data, t_test_result){
   return (unname(t_test_result)[[1]] / sqrt(nrow(data)))
